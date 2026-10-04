@@ -1,0 +1,179 @@
+
+/* @import "tailwindcss";
+@import "tw-animate-css"; */
+
+/* @custom-variant dark (&:is(.dark *)); */
+
+/* -------------------------------------------------------
+   Tailwind layers
+   ------------------------------------------------------- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var (--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-member: var(--ring)
+}
+
+/* -------------------------------------------------------
+   Base theme variables (light mode)
+   Activated when <html class="light">
+   ------------------------------------------------------- */
+@layer base {
+:root {
+   --bg-blue-500:'#5df48f';
+   --radius: 0.65rem;
+   --background: 224.4 64.3% 32.9%;
+   --blue-foreground: 60, 63%, 100%;
+   --foreground: 187 92.4% 69%;
+   --card: oklch(100% 0.00011 271.152);
+   --card-foreground: 224.4 100% 100%;
+   /* --dropdown-light: 50 100% 50%; yellow */
+   --dropdown-light:187, 93%, 80%
+   --popover: oklch(1 0 0);
+   --popover-foreground: 224.4 64.3% 32.9%;
+   --primary: oklch(62.796% 0.18133 144.352);
+   --primary-foreground: oklch(0.97 0.014 254.604);
+   --secondary: oklch(0.967 0.001 286.375);
+   --secondary-foreground: 187 92.4% 69%;
+   --muted: 187 92.4% 69%
+   --muted-foreground: 187 92.4% 69%
+   --accent: oklch(0.967 0.001 286.375);
+   --accent-foreground: 201 90% 27.5%;
+   --destructive: oklch(0.90 0.06 231);
+   --border: oklch(0.92 0.004 286.32);
+   --input: oklch(0.92 0.004 286.32);
+   --ring: oklch(0.623 0.214 259.815);
+   --chart-1: oklch(0.646 0.222 41.116);
+   --chart-2: oklch(0.6 0.118 184.704);
+   --chart-3: 201 90% 27.5%;
+   --chart-4: oklch(0.828 0.189 84.429);
+   --chart-5: oklch(0.769 0.188 70.08);
+   --sidebar: oklch(0.985 0 0);
+   --sidebar-foreground: 224.4 64.3% 32.9%; 
+   --sidebar-primary: oklch(0.623 0.214 259.815);
+   --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
+   --sidebar-accent: oklch(0.967 0.001 286.375);
+   --sidebar-accent-foreground: 201 90% 27.5%;
+   --sidebar-border: oklch(0.92 0.004 286.32);
+   --sidebar-ring: oklch(0.623 0.214 259.815);
+ }
+
+ /* -------------------------------------------------------
+     Dark mode variables
+     Activated when <html class="dark">
+     ------------------------------------------------------- */
+ 
+ .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --dropdown-dark: 0 0% 100%; /* white */
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+/* -------------------------------------------------------
+   Base element styling
+   ------------------------------------------------------- */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+@layer components {
+  [data-slot="dropdown-menu-item"] {
+    @apply font-bold font-sans;
+    color: #67e8f9;
+  }
+
+  .dark [data-slot="dropdown-menu-item"] {
+    color: hsl(var(--dropdown-dark));
+  }
+
+  /* .sidebar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* adjust as needed */
+    /* height: 100vh;
+    background: hsl(var(--sidebar));
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+    z-index: 9999; */
+  /* } */
+
+  /* .show-sidebar {
+    transform: translateX(0);
+  } */ 
+
+}
+ 
+@theme inline {
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+}
